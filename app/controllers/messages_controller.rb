@@ -5,7 +5,9 @@ class MessagesController < ApplicationController
   end
   
   def create
-    @message = Message.create(params[:message])
+    @message = Message.new(params[:message])
+    @message.user = current_user
+    @message.save
 
     redirect_to messages_path
   end
