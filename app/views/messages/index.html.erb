@@ -1,0 +1,16 @@
+<h2>Funstation Message Board</h2>
+<ul>
+	<% @messages.each do |message| %>
+		<li><%= message.content %></li>
+	<% end %>
+</ul>
+
+<%= form_for Message.new do |f| %>
+	<div>
+		<%= f.label :content %>
+		<%= f.text_area :content %>
+	</div>
+	<div>
+	  <%= f.submit %>
+	</div>
+<% end %>
