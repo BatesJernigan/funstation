@@ -5,13 +5,9 @@ class MessagesController < ApplicationController
   end
   
   def create
-    @message = Message.new(params[:message])
-    
-    if @message.save
-      redirect_to messages_path
-    else
-      render :index
-    end
+    @message = Message.create(params[:message])
+
+    redirect_to messages_path
   end
   
 end
